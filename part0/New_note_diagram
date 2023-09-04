@@ -1,31 +1,34 @@
 sequenceDiagram
-    participant user
-    participant browser
-    participant server
+    participant User
+    participant Browser
+    participant Server
 
-    user->>browser: Enters note and clicks "save"
+    User->>Browser: Enters note and clicks "Save"
 
-    browser->>server: POST https://fullstack-exampleapp.herokuapp.com/new_note
-    activate server
-    browser->>server: New note data (text, date, etc).
-    server-->>browser: HTTP 302 Redirect (/exampleapp/notes).
-    deactivate server
+    Browser->>Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate Server
+    Browser->>Server: New note data (text, date, etc.)
+    Server-->>Browser: HTTP 302 Redirect (Location: /exampleapp/notes)
+    deactivate Server
 
-    browser->>user: Update the webpage with new note.
+    Note right of Browser: Browser automatically follows the redirect
 
-    user->>browser: Browser reloads the "Notes" page.
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate Server
+    Server-->>Browser: the css file
+    deactivate Server
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
-    activate server
-    server-->>browser: the css file
-    deactivate server
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate Server
+    Server-->>Browser: the JavaScript file
+    deactivate Server
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
-    activate server
-    server-->>browser: the Javascript file
-    deactivate server
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate Server
+    Server-->>Browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
+    deactivate Server
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
-    activate server
-    server-->>browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
-    deactivate server
+    Note right of Browser: Browser reloads the "Notes" page
+
+    Note right of Browser: The "Notes" page is now updated with the new note
+
