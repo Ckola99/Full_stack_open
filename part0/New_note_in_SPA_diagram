@@ -1,0 +1,26 @@
+sequenceDiagram
+    participant User
+    participant Browser
+    participant SPA_Server
+    participant API_Server
+
+    User->>Browser: Navigates to https://studies.cs.helsinki.fi/exampleapp/spa
+
+    Browser->>SPA_Server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate SPA_Server
+    SPA_Server-->>Browser: Initial HTML, CSS and Javascript resources.
+    deactivate SPA_Server
+
+    Note right of Browser: SPA loads in browser.
+
+    User->>Browser: Creates a new note.
+
+    Browser->>API_Server: Asynchronous POST request to new_note_spa
+    activate API_Server
+    Browser->>API_Server: JSON data (new note content and timestamp)
+    API_Server-->>Browser: HTTP 201 created (no redirect)
+    deactivate API_Server
+
+    Note right of Browser: The SPA updates the page without a full reload
+
+    User->>Browser: Continues interacting with the SPA

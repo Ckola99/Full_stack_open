@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant User
+    participant Browser
+    participant SPA_Server
+
+    User->>Browser: Navigates to https://studies.cs.helsinki.fi/exampleapp/spa
+
+    Browser->>SPA_Server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate SPA_Server
+    SPA_Server-->>Browser: Initial HTML, CSS and Javascript resources.
+    deactivate SPA_Server
+
+    Note right of Browser: SPA loads in browser.
