@@ -11,11 +11,6 @@
       "id": 2
     },
     {
-      "name": "Christel",
-      "number": "0828521604",
-      "id": 3
-    },
-    {
       "name": "Dad",
       "number": "0837272158",
       "id": 4
@@ -24,6 +19,16 @@
       "name": "Home",
       "number": "0114327079",
       "id": 5
+    },
+    {
+      "name": "Kholiwe",
+      "number": "0749722029",
+      "id": 6
+    },
+    {
+      "name": "Enock",
+      "number": "0840427663",
+      "id": 7
     }
   ]
 }

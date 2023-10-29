@@ -2,13 +2,14 @@ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 
 // Create Express applications for each port
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(express.static('dist'));
 
 
 morgan.token("post-data", (request) => {
