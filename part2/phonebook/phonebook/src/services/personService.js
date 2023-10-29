@@ -8,7 +8,7 @@ const getList = () => {
 
 const remove = ( id, persons, setPersons, showNotification ) => {
 	return axios
-		.delete(`http://localhost:3001/persons/${id}`)
+		.delete(`http://localhost:3001/api/persons/${id}`)
 		.then(() => {
 			// Remove the deleted person from the local state
 			setPersons(persons.filter((person) => person.id !== id));

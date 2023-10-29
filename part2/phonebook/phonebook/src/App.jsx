@@ -41,7 +41,7 @@ const App = () => {
 					number: newNumber,
 				};
 				axios.put(
-					`http://localhost:3001/persons/${existingPerson.id}`,
+					`http://localhost:3001/api/persons/${existingPerson.id}`,
 					updatedPerson
 				)
 					.then((response) => {
@@ -77,7 +77,7 @@ const App = () => {
 				number: newNumber,
 			};
 
-			axios.post("http://localhost:3001/persons", newPerson)
+			axios.post("http://localhost:3001/api/persons", newPerson)
 				.then((response) => {
 					// Update the local state with the new person
 					setPersons([...persons, response.data]);
