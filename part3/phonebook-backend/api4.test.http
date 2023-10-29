@@ -1,2 +1,0 @@
-# Request 4: delete specific piece of data
-DELETE http://localhost:3001/api/persons/3
