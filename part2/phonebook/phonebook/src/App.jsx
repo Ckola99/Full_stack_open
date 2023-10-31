@@ -86,7 +86,7 @@ const App = () => {
 					showNotification("success", `Added ${newName}.`);
 				})
 				.catch((error) => {
-					showNotification("error", `Error adding ${newName}: ${error.message}`);
+					showNotification("error", error.response.data.error);
 					console.error("Error adding person:", error);
 				});
 		}
